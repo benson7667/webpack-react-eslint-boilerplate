@@ -1,13 +1,13 @@
-const webpack = require("webpack");
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+const webpack = require('webpack')
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  mode: "development",
-  entry: "./src/index.js",
+  mode: 'development',
+  entry: './src/index.js',
   output: {
-    filename: "bundle.js",
-    path: path.resolve(__dirname, "./dist")
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, './dist')
   },
   devServer: {
     hot: true,
@@ -15,30 +15,30 @@ module.exports = {
     open: true
   },
   resolve: {
-    extensions: [".json", ".js", ".jsx"]
+    extensions: ['.json', '.js', '.jsx']
   },
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        loader: "babel-loader"
+        loader: 'babel-loader'
       }
     ]
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "[DevServer] React + Webpack + ESlint Boilerplate",
-      description: "Boilerplate setup for react, webpack and eslint",
-      template: "./src/index.html"
+      title: '[DevServer] React + Webpack + ESlint Boilerplate',
+      description: 'Boilerplate setup for react, webpack and eslint',
+      template: './src/index.html'
     }),
     new webpack.DefinePlugin({
-      "process.env.NODE_ENV": JSON.stringify(
-        process.env.NODE_ENV || "development"
+      'process.env.NODE_ENV': JSON.stringify(
+        process.env.NODE_ENV || 'development'
       ),
-      "process.env.BUILD_ENV": JSON.stringify(
-        process.env.BUILD_ENV || "development"
+      'process.env.BUILD_ENV': JSON.stringify(
+        process.env.BUILD_ENV || 'development'
       )
     })
   ]
-};
+}
