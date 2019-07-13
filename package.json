@@ -4,12 +4,14 @@
   "description": "Boilerplate to setup webpack react and eslint",
   "main": "index.js",
   "scripts": {
-    "dev": "cd webpack && BUILD_ENV=development webpack-dev-server --config webpack.dev.js",
-    "qa": "cd webpack && BUILD_ENV=qa webpack-dev-server --config webpack.dev.js",
-    "production": "cd webpack && BUILD_ENV=production webpack-dev-server --config webpack.dev.js",
-    "build:dev": "cd webpack && BUILD_ENV=development webpack --progress --colors --config webpack.prod.js",
-    "build:qa": "cd webpack && BUILD_ENV=qa webpack --progress --colors --config webpack.prod.js",
-    "build:prod": "cd webpack && BUILD_ENV=production webpack --progress --colors --config webpack.prod.js"
+    "webpack-dev-server": "webpack-dev-server --config webpack.dev.js",
+    "dev": "BUILD_ENV=development npm run webpack-dev-server",
+    "qa": "BUILD_ENV=qa npm run webpack-dev-server",
+    "production": "BUILD_ENV=production npm run webpack-dev-server",
+    "build": "webpack --progress --colors --config webpack.prod.js",
+    "build:dev": "BUILD_ENV=development npm run build",
+    "build:qa": "BUILD_ENV=qa npm run build",
+    "build:prod": "BUILD_ENV=production npm run build"
   },
   "keywords": [],
   "author": "",
