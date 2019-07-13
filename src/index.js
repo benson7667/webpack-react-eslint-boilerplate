@@ -1,2 +1,5 @@
-console.log("NODE_ENV", process.env.NODE_ENV);
-console.log("BUILD_ENV", process.env.BUILD_ENV);
+import React from "react";
+import ReactDOM from "react-dom";
+import AppRoute from "./AppRoute";
+
+ReactDOM.render(<AppRoute />, document.getElementById("root"));

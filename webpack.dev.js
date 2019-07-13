@@ -14,6 +14,18 @@ module.exports = {
     inline: true,
     open: true
   },
+  resolve: {
+    extensions: [".json", ".js", ".jsx"]
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        loader: "babel-loader"
+      }
+    ]
+  },
   plugins: [
     new HtmlWebpackPlugin({
       title: "[DevServer] React + Webpack + ESlint Boilerplate",
