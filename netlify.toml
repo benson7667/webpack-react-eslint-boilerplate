@@ -1,4 +1,14 @@
-[build]
+[context.development]
+base = "/"
+publish = "dist/"
+command = "npm install && npm run build:dev"
+
+[context.qa]
+base = "/"
+publish = "dist/"
+command = "npm install && npm run build:qa"
+
+[context.production]
 base = "/"
 publish = "dist/"
 command = "npm install && npm run build:prod"
