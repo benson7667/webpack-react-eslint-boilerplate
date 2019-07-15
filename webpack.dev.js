@@ -7,12 +7,14 @@ module.exports = {
   entry: './src/index.js',
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, './dist')
+    path: path.resolve(__dirname, './dist'),
+    publicPath: '/'
   },
   devServer: {
     hot: true,
     inline: true,
-    open: true
+    open: true,
+    historyApiFallback: true
   },
   resolve: {
     extensions: ['.json', '.js', '.jsx']
@@ -28,14 +30,18 @@ module.exports = {
         test: /\.(png|jpe?g|svg|gif)$/,
         loader: 'file-loader',
         options: {
-          name: '[name].[contentHash].[ext]'
+          name: '[name].[contenthash].[ext]'
         }
+      },
+      {
+        test: /\.(scss)$/,
+        use: ['style-loader', 'css-loader', 'sass-loader']
       }
     ]
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: '[DevServer] React + Webpack + ESlint Boilerplate',
+      title: `[${process.env.BUILD_ENV}] React + Webpack + ESlint Boilerplate`,
       description: 'Boilerplate setup for react, webpack and eslint',
       template: './src/index.html'
     }),
